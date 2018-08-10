@@ -24,7 +24,7 @@ function egovselect_menu_link(&$variables) {
   if (!empty($element['#below'])) {
     // We don't want to render menu position links.
     foreach ($element['#below'] as $mlid => $menu_item) {
-      if ($menu_item['#original_link']['module'] == 'menu_position') {
+      if (!empty($menu_item['#original_link']['module']) && $menu_item['#original_link']['module'] == 'menu_position') {
         unset($element['#below'][$mlid]);
       }
     }
