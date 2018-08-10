@@ -1,0 +1,57 @@
+
+//
+// @file
+// SASS - Background Image mixin.
+//
+
+// This mixin outputs a image as background in an HTML element.
+// (Needs to be block or inline-block display).
+@mixin background-image(
+  $image:   false,
+  $color:   false,
+  $alpha:   1,
+  $x:       50%,
+  $y:       50%,
+  $repeat:  no-repeat
+) {
+    
+  @if $color {
+    @include alpha-background-color($color, $alpha);
+  }
+  background: {
+    @if $image {
+      image: url('../../../images/#{$image}.png');
+    }
+    @if $repeat != false {
+      repeat: $repeat;
+    }
+    @if $x != false and $y != false {
+      position: $x $y;
+    }
+  }
+}
+
+@mixin background-image-jpg(
+  $image:   false,
+  $color:   false,
+  $alpha:   1,
+  $x:       50%,
+  $y:       50%,
+  $repeat:  no-repeat
+) {
+    
+  @if $color {
+    @include alpha-background-color($color, $alpha);
+  }
+  background: {
+    @if $image {
+      image: url('../../../images/#{$image}.jpg');
+    }
+    @if $repeat != false {
+      repeat: $repeat;
+    }
+    @if $x != false and $y != false {
+      position: $x $y;
+    }
+  }
+}

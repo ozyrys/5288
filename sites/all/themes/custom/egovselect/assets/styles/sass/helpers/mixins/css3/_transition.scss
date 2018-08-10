@@ -1,0 +1,23 @@
+
+//
+// @file
+// SASS - Transitions mixin.
+//
+
+// The default transition values when no argument is provided to the transition
+// mixin: [ transition | transition-delay | transition-duration | transition-property | transition-timing-function ].
+//
+// The browser default is "all 0 ease 0", DeepBlue defaults to "all 1s false false".
+//
+$default-transition: all 1s !default;
+
+// Allow to change property values smoothly (from one value to another), over a given duration.
+//
+// $transition: transition [ transition-delay | transition-duration | transition-property | transition-timing-function ]
+//
+@mixin transition(
+  $transition: $default-transition
+) {
+  
+  @include prefixer(transition, $transition, webkit moz o spec);
+}

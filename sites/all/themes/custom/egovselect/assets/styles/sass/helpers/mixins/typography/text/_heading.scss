@@ -1,0 +1,67 @@
+
+//
+// @file
+// SASS - Heading mixin.
+//
+
+// @function.
+//
+// Convert pixels to ems.
+// eg. for a relational value of 12px write em(12) when the parent is 16px.
+// If the parent is another value say 24px write em(12, 24).
+//
+@function em($pxval, $base: $base-font-size) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1em;
+}
+
+// Strips the units from a value. e.g. 12px -> 12.
+@function strip-units($val) {
+  @return ($val / ($val * 0 + 1));
+}
+
+// @mixin.
+//
+// Define the heading styles.
+//
+@mixin heading(
+  $color:           false,
+  $font-family:     false,
+  $font-size:       false,
+  $font-weight:     false,
+  $text-transform:  false,
+  $line-height:     false
+) {
+  
+  @if $color {
+    color: $color;
+  }
+  @if $font-family or $font-size or $font-weight {
+    font: {
+      @if $font-family {
+        family: $font-family;
+      }
+      @if $font-size {
+        size: $font-size;
+      }
+      @if $font-weight {
+        weight: $font-weight;
+      }
+    }
+  }
+  @if $text-transform {
+    text: {
+      transform: $text-transform;
+    }
+  }
+  @if $line-height {
+    line: {
+      height: $line-height;
+    }
+  }
+}

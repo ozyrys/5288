@@ -1,0 +1,700 @@
+
+//
+// @file
+// Default style definition.
+//
+// Define base rule which will be applied to elements using an element selector,
+// a descendent selector, or a child selector, along with any pseudo-classes.
+// It does not include any class or ID selectors. It is defining the default
+// styling for how that element should look in all occurrences on the page.
+//
+
+// The following comment starts with a "!". So it will not be removed during
+// the (SASS) compilation. It is just to alert project contributors that the
+// (CSS) output file can not be modified under any circumstances.
+/*! Compiled SASS file | Do NOT modify from here !*/
+
+// Import Sass variables & helpers (functions, mixins & placeholders).
+@import "../helpers/init";
+
+//
+// This CSS document uses "Drupal Coding Standards"
+// [ https://drupal.org/node/1887862 ]
+//
+// For those unfamiliar with CSS terminology, these are the concise terms and
+// the rule set used in these standards.
+//
+// selector-1,
+// selector-2 {
+//   -webkit-property: value;
+//      -moz-property: value;
+//           property: value;
+// }
+//
+
+* {
+  
+  // Overriding the default text selection color (WebKit/Blink browsers).
+  // @selector *::selection
+  //
+  &::selection {
+    @include alpha-background-color($orange);
+    @include alpha-color($white);
+  }
+  
+  // Overriding the default text selection color (Gecko browsers).
+  // @selector *::-moz-selection
+  //
+  &::-moz-selection {
+    @include alpha-background-color($orange);
+    @include alpha-color($white);
+  }
+
+  // Placeholder text in inputs.
+  // Safari 3+, Chrome 1+.
+  // @selector *::-webkit-input-placeholder
+  //
+  //&::-webkit-input-placeholder {
+  //  @include alpha-color($darkest-gray);
+  //  font: {
+  //    size: em(14);
+  //    style: italic;
+  //    weight: 400;
+  //  }
+  //}
+  // Firefox 19+.
+  // @selector *::-moz-placeholder
+  //
+  //&::-moz-placeholder {
+  //  @include alpha-color($darkest-gray);
+  //  font: {
+  //    size: em(14);
+  //    style: italic;
+  //    weight: 400;
+  //  }
+  //}
+  // Firefox 18-.
+  // @selector *:-moz-placeholder
+  //
+  //&:-moz-placeholder {
+  //  @include alpha-color($darkest-gray);
+  //  font: {
+  //    size: em(14);
+  //    style: italic;
+  //    weight: 400;
+  //  }
+  //}
+  // Internet Explorer.
+  // @selector *:-ms-input-placeholder
+  //
+  //&:-ms-input-placeholder {
+  //  @include alpha-color($darkest-gray);
+  //  font: {
+  //    size: em(14);
+  //    style: italic;
+  //    weight: 400;
+  //  }
+  //}
+}
+
+// Root html element.
+// @selector html
+//
+html {
+  height: 100%;
+  font: {
+    size: $base-font-size;
+  }
+}
+
+// Body element.
+// @selector body
+//
+body {
+  @include alpha-color($base-text-color);
+  @include alpha-background-color($base-background-color);
+  position: relative;
+  &.main-body {
+    min-height: 100%;
+    @include alpha-background-color($dark-blue);
+  }
+  
+  font: {
+    family: $base-font-family;
+    size: em($base-font-size);
+    weight: 400;
+  }
+  line: {
+    height: $base-line-height;
+  }
+  
+  html &{
+    &.admin-menu{
+	  &.front{
+        background-position: center 72px;
+	  }
+    }
+  }
+}
+
+// Headings
+// @selector h1
+//
+h1 {
+  @extend %headings-1-to-3-defaults;
+  color: $darker-orange;
+  margin: 0 0 0.5em 0;
+  font: {
+    size: em($h1-font-size);
+	weight: normal;
+  }
+
+  // Responsiveness.
+  // Properties for extra-small (Smartphones).
+  //
+  @include breakpoint(xsmall) {
+    font: {
+      size: em(26);
+    }
+  }
+}
+// @selector h2
+//
+h2 {
+  @extend %headings-1-to-3-defaults;
+  margin:0;
+  color: $black;
+  font: {
+    size: em($h2-font-size);
+	weight: normal;
+  }
+  line-height: 2em;
+}
+// @selector h3
+//
+h3 {
+  @extend %headings-1-to-3-defaults;
+  margin:0;
+  font: {
+    size: em($h3-font-size);
+	weight: normal;
+  }
+  line-height: 1.8em;
+}
+// @selector h4
+//
+h4 {
+  @include heading(
+    false,              // color.
+    false,              // font-family.
+    em($h4-font-size),  // font-size.
+    700,                // font-weight.
+    uppercase,          // text-transform.
+    $base-line-height   // line-height.
+  );
+}
+// @selector h5
+//
+h5 {
+  @extend %headings-5-and-6-defaults;
+}
+// @selector h5
+//
+h6 {
+  @extend %headings-5-and-6-defaults;
+}
+
+// Paragraphs.
+// @selector p
+//
+p {
+  margin: 0 0 15px 0;
+}
+
+// Addresses.
+// @selector address
+//
+address {
+  font: {
+    style: normal;
+  }
+}
+
+// Links.
+// @selector a
+//
+a {
+  @include link-colors($base-link-color);
+  @include hover-link(hoverline);
+
+  // Links (hover and focus transitions) / (Except Contextual links).
+  // @selector a:hover
+  // @selector a:focus
+  // @selector a:not:hover(.contextual-links-trigger)
+  //
+  /*&:hover,
+  &:focus,
+  &:not(.contextual-links-trigger) {
+    @include transition(all .3s ease-out);
+  }*/
+
+  // Links inside Headings 2.
+  // @selector h2 a
+  // @selector h3 a
+  //
+  h2 &,
+  h3 & {
+    @include link-colors($orange);
+  }
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+// Strong emphasis.
+// @selector strong
+//
+strong {
+  font: {
+    weight: 600;
+  }
+}
+
+// Images.
+// @selector img
+//
+img {
+  display:block;
+  max: {
+    width: 100%;
+  }
+  height: auto;
+
+  // Images (Container).
+  // @selector figure img
+  //
+  figure & {
+    display: block;
+  }
+}
+
+// iFrames.
+// @selector iframe
+//
+iframe {
+  max: {
+    width: 100%;
+  }
+
+  // Responsiveness.
+  // Properties for small screens (Tablets).
+  //
+  @include breakpoint(small) {
+    width: 100%;
+    height: em(438);
+  }
+}
+
+//
+// Tables
+// ---------------------------------------------------
+
+
+table {
+  background-color: $table-bg;
+}
+caption {
+  padding-top: $table-cell-padding;
+  padding-bottom: $table-cell-padding;
+  color: $light-gray;
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+
+
+// Baseline styles
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 15px;
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-cell-padding;
+        //line-height: $line-height-base;
+        vertical-align: top;
+        border-top: 1px solid $table-border-color;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $table-border-color;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    //background-color: $body-bg;
+  }
+}
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+@include table-row-variant('active', $table-bg-active);
+@include table-row-variant('success', $state-success-bg);
+@include table-row-variant('info', $state-info-bg);
+@include table-row-variant('warning', $state-warning-bg);
+@include table-row-variant('danger', $state-danger-bg);
+
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+  @include breakpoint(xsmall-small) {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid $table-border-color;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+// Fieldsets.
+// @selector fieldset
+//
+fieldset {
+
+  // Legends.
+  // @selector fieldset legend
+  //
+  legend {
+
+  }
+}
+
+// Labels.
+// @selector label
+//
+label {
+  display: inline-block;
+  font: {
+    weight: 600;
+  }
+  line: {
+    height: 180%;
+  }
+}
+
+// Inputs.
+// @selector input
+//
+input {
+  @extend %form-items-defaults;
+
+  // Files.
+  // @selector input[type="file"]
+  //
+  &[type="file"] {
+    height: auto;
+    vertical: {
+      align: top;
+    }
+  }
+
+  // Checkboxes.
+  // @selector input[type="checkbox"]
+  //
+  &[type="checkbox"] {
+    @extend %checkboxes-radio-buttons-defaults;
+
+    // Label that is placed immediately after the checkbox button.
+    // @selector input[type="checkbox"] + label
+    //
+    & + label {
+      @include background-image('form-items/checkbox-normal-16x16', false, false, false, false, false);
+
+      // Hover state.
+      // @selector input[type="checkbox"] + label:hover
+      //
+      &:hover {
+        @include background-image('form-items/checkbox-hover-16x16', false, false, false, false, false);
+      }
+    }
+
+    // Label that is placed immediately after the checkbox button (Focus state).
+    // @selector input[type="checkbox"]:focus + label
+    //
+    &:focus + label {
+      @include background-image('form-items/checkbox-hover-16x16', false, false, false, false, false);
+    }
+
+    // Label that is placed immediately after the checkbox button (Checked state).
+    // @selector input[type="checkbox"]:checked + label
+    //
+    &:checked + label {
+      @include background-image('form-items/checkbox-active-16x16', false, false, false, false, false);
+    }
+
+    // Label that is placed immediately after the checkbox button (Disabled state).
+    // @selector input[type="checkbox"][disabled]
+    //
+    &[disabled] + label {
+      @include background-image('form-items/checkbox-disabled-16x16', false, false, false, false, false);
+    }
+
+    // Label that is placed immediately after the checkbox button (Disabled/Checked state).
+    // @selector input[type="checkbox"][disabled]:checked + label
+    //
+    &[disabled]:checked + label {
+      @include background-image('form-items/checkbox-disabled-active-16x16', false, false, false, false, false);
+    }
+  }
+
+  // Radio buttons.
+  // @selector input[type="radio"]
+  //
+  &[type="radio"] {
+    @extend %checkboxes-radio-buttons-defaults;
+
+    // Label that is placed immediately after the radio button.
+    // @selector input[type="radio"] + label
+    //
+    & + label {
+      @include background-image('form-items/radio-normal-16x16', false, false, false, false, false);
+
+      // Hover state.
+      // @selector input[type="radio"] + label:hover
+      //
+      &:hover {
+        @include background-image('form-items/radio-hover-16x16', false, false, false, false, false);
+      }
+    }
+
+    // Label that is placed immediately after the radio button (Focus state).
+    // @selector input[type="radio"]:focus + label
+    //
+    &:focus + label {
+      @include background-image('form-items/radio-hover-16x16', false, false, false, false, false);
+    }
+
+    // Label that is placed immediately after the radio button (Checked state).
+    // @selector input[type="radio"]:checked + label
+    //
+    &:checked + label {
+      @include background-image('form-items/radio-active-16x16', false, false, false, false, false);
+    }
+
+    // Label that is placed immediately after the radio button (Disabled state).
+    // @selector input[type="radio"][disabled] + label
+    //
+    &[disabled] + label {
+      @include background-image('form-items/radio-disabled-16x16', false, false, false, false, false);
+    }
+
+    // Label that is placed immediately after the radio button (Disabled/Checked state).
+    // @selector input[type="radio"][disabled]:checked + label
+    //
+    &[disabled]:checked + label {
+      @include background-image('form-items/radio-disabled-active-16x16', false, false, false, false, false);
+    }
+  }
+
+  // Submit buttons.
+  // @selector input[type="submit"]
+  //
+  &[type="submit"] {
+    @extend %form-actions-defaults;
+  }
+
+  // Reset buttons.
+  // @selector input[type="reset"]
+  //
+  &[type="reset"] {
+    @extend %form-actions-defaults;
+    @extend %form-actions-secondary-defaults;
+  }
+
+  // Buttons.
+  // @selector input[type="button"]
+  //
+  &[type="button"] {
+    @extend %form-actions-defaults;
+    @extend %form-actions-secondary-defaults;
+  }
+}
+
+// HTML buttons.
+// @selector button
+//
+button {
+  @extend %form-actions-defaults;
+  @extend %form-actions-secondary-defaults;
+}
+
+// Selects.
+// @selector select
+//
+select {
+  @extend %form-items-defaults;
+  @include background-image('form-items/arrow-bottom-yellow-42x30', $white, 1, right);
+  height: em(35, 14);
+  padding: {
+    right: em(42, 14);
+  }
+  font: {
+    size: em(14);
+  }
+
+  // MS 10+ drop-down button styling.
+  // @selector select::-ms-expand
+  //
+  &::-ms-expand {
+    display: none;
+  }
+
+  // Selects (Multiple).
+  // @selector select[multiple]
+  //
+  &[multiple] {
+    height: auto;
+    background: {
+      image: none;
+    }
+    overflow: hidden;
+  }
+}
+
+// Textarea.
+// @selector textarea
+//
+textarea {
+  @extend %form-items-defaults;
+  height: auto;
+  padding: em(10);
+  resize: vertical;
+}
+
+// Form elements.
+// @selector form
+//
+form {
+  
+  // Help text (Field description).
+  // @selector form small
+  //
+  small {
+    font: {
+      style: italic;
+    }
+  }
+}

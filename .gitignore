@@ -1,0 +1,22 @@
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+sites/*/themes/custom/*/assets/styles/prepros*.config
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+
+# Ignore root .txt files (security)
+/*.txt
+!/robots.txt
+
+# Ignore web.config since it's not used
+web.config
+sites.php
+
+# Ignore dev files
+.sass-cache
+node_modules
+
+# Ignore IDE file
+.idea

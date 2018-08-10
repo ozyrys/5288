@@ -1,0 +1,28 @@
+/**
+ * @file
+ * Theme/design style definition.
+ * Final visual styling ("Look & Feel") for all specific components.
+ *
+ * Organize styles using the SMACSS technique. @see http://smacss.com/book/
+ *
+ * When you will turn on CSS aggregation at admin/config/development/performance,
+ * all of your @include files will be combined into a single file.
+ */
+
+/* Import all required font families from the Google Fonts API */
+/* @import url('//fonts.googleapis.com/css?family=Josefin+Sans:300,300italic,400,400italic,600,600italic,700,700italic');
+@import url('//fonts.googleapis.com/css?family=PT+Sans');  */
+
+/* CSS RESETS & BASE RULES */
+@import "css/base/normalize.css";
+@import "css/base/default.css";
+
+/* LAYOUT RULES */
+@import "css/layout/grid.css";
+
+/* COMPONENTS (SMACSS module) RULES */
+@import "css/components/system.css";
+@import "css/components/block.css";
+@import "css/components/views.css";
+@import "css/components/searcher.css";
+@import "css/components/contact.css";

@@ -1,0 +1,156 @@
+/**
+ * @file
+ * PPS Social Integration - Print style definition.
+ *
+ * This file provides some sane styling for the print layout.
+ */
+
+
+body {
+  font-size:120%;
+}
+
+/* Reinitialize layout, grid and colors */
+html,
+body,
+#navbar,
+#main,
+#content,
+.container,
+.row {
+  clear:both !important;
+  float:none !important;
+  width:auto !important;
+  min-width:initial !important;
+  height:auto !important;
+  color:black !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background-color:transparent !important;
+  background-image:none !important;
+}
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  float:none !important;
+  width:auto !important;
+  margin:0 0 10pt 0 !important;
+  padding:0 !important;
+}
+
+/* Add underline on links */
+a:link,
+a:visited {
+  text-decoration:underline !important;
+}
+
+/* Don't underline header. */
+#header a:link,
+#header a:visited {
+  text-decoration:none !important;
+}
+
+/* Show url for links in content */
+#content a {
+  color:#14a1cc !important;
+  text-decoration:none !important;
+}
+#content a:after {
+  content:" (" attr(href) ")" !important;
+  color:silver !important;
+  text-decoration:none !important;
+}
+#content figure a:after {
+  display:none !important;
+}
+
+
+/* Hide elements visually */
+.element-invisible,
+.element-focusable {
+  display:none !important;
+  visibility:hidden !important;
+}
+.skip-link,
+a#main-content,
+.region-tools,
+.region-header,
+.region-navigation,
+.breadcrumb,
+.sidebar-left,
+.sidebar-right,
+#top,
+#bottom,
+#contentinfo,
+.views-more-link,
+#content .block-bean-newsletter-subscription,
+#content .block-views-multimedia {
+  display:none !important;
+  visibility:hidden !important;
+}
+
+/* Reinitialize Tabs */
+.field-group-htabs-wrapper ul.horizontal-tabs-list {
+  display:none !important;
+  visibility:hidden !important;
+}
+.field-group-htabs-wrapper .horizontal-tabs-panes {}
+.field-group-htabs-wrapper .horizontal-tabs-panes .field-group-htabs {
+  display:block !important;
+  clip:initial !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 0 20pt 0 !important;
+  padding:0 !important;
+  position:relative !important;
+  border:0 !important;
+}
+.field-group-htabs-wrapper .horizontal-tabs-panes .field-group-htabs > legend {
+  display:block;
+}

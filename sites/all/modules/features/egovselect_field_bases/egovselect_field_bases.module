@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the eGovSelect - Field Bases feature.
+ */
+
+include_once 'egovselect_field_bases.features.inc';

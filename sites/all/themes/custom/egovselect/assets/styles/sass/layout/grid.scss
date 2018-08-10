@@ -1,0 +1,140 @@
+
+//
+// @file
+// Bootstrap "Grid System" styles definition.
+//
+// Custom build of the Bootstrap framework including the Grid System only.
+// (responsiveness enabled).
+//
+
+/*!
+ * Bootstrap v3.3.1 (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ *
+ */
+
+// Import Sass variables & helpers (functions, mixins & placeholders).
+@import "../helpers/init";
+
+// All elements.
+//
+* {
+  @include box-sizing($box-model);
+  
+  // Pseudo-elements.
+  //
+  &:before,
+  &:after {
+    @include box-sizing($box-model);
+  }
+}
+
+// Body widths.
+//
+// Set the body width, and override it according to the device ranges.
+//
+body {
+  min: {
+    width: em($medium-container-width);
+  }
+  
+  // Body width for extra-small screens (Smartphones).
+  @include breakpoint(xsmall) {
+    min: {
+      width: $extra-small-container-width;
+    }
+  }
+  // Body width for small screens (Tablets).
+  @include breakpoint(small) {
+    min: {
+      width: $small-container-width;
+    }
+  }
+  // Body width for large screens (Desktops with wide screens).
+  @include breakpoint(large) {
+    min: {
+      width: em($large-container-width);
+    }
+  }
+}
+
+// Container widths.
+//
+// Set the container width, and override it for fixed navbars in media queries.
+//
+.container {
+  @include bootstrap-container-fixed;
+  width: $medium-container-width;
+  
+  // Containers width for extra-small screens (Smartphones).
+  @include breakpoint(xsmall) {
+    width: $extra-small-container-width;
+  }
+  // Containers width for small screens (Tablets).
+  @include breakpoint(small) {
+    width: $small-container-width;
+  }
+  // Containers width for large screens (Desktops with wide screens).
+  @include breakpoint(large) {
+    width: $large-container-width;
+  }
+}
+
+// Fluid container.
+//
+// Utilizes the mixin meant for fixed width containers, but without any
+// defined width for fluid, full width layouts.
+//
+.container-fluid {
+  @include bootstrap-container-fixed;
+}
+
+// Row.
+//
+// Rows contain and clear the floats of your columns.
+//
+.row {
+  @include bootstrap-make-row;
+}
+
+// Columns (Span).
+//
+// Common styles for all grid columns.
+//
+@include bootstrap-make-grid-columns;
+
+// Medium grid.
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+//
+@include bootstrap-make-grid(md);
+
+// Extra-small grid.
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+//
+@include breakpoint(xsmall) {
+  @include bootstrap-make-grid(xs);
+}
+@include breakpoint(xxsmall) {
+  @include bootstrap-make-grid(xxs);
+}
+
+// Small grid.
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+//
+@include breakpoint(small) {
+  @include bootstrap-make-grid(sm);
+}
+
+// Large grid.
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+//
+@include breakpoint(large) {
+  @include bootstrap-make-grid(lg);
+}

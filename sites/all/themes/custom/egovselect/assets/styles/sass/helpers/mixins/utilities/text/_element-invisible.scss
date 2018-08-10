@@ -1,0 +1,35 @@
+
+//
+// @file
+// SASS - Element Invisible/Focusable mixins.
+//
+
+// Hide elements visually, but keep them available for screen-readers.
+//
+// Used for information required for screen-reader users to understand and use
+// the site where visual display is undesirable. Information provided in this
+// manner should be kept concise, to avoid unnecessary burden on the user.
+// "!important" is used to prevent unintentional overrides.
+//
+@mixin element-invisible {
+  
+  position: absolute !important;
+  overflow: hidden;
+  height: 1px;
+  @if ($legacy-support-for-ie6 or $legacy-support-for-ie7) {
+    clip: rect(1px 1px 1px 1px); // IE6 and IE7 use the wrong syntax.
+  }
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// The "element-focusable" mixin extends the "element-invisible" mixin to
+// allow the element to be focusable when navigated to via the keyboard.
+//
+@mixin element-focusable {
+  
+  &:active,
+  &:focus {
+    position: static !important;
+    clip: auto;
+  }
+}

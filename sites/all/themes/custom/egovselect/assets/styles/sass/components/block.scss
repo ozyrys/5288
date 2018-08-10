@@ -1,0 +1,708 @@
+
+//
+// @file
+// "Block" module style defintion.
+//
+// This document includes classes/ID selectors related to the "Block" module.
+// It defines specific styling for how elements should look like through pages.
+//
+
+// The following comment starts with a "!". So it will not be removed during
+// the (SASS) compilation. It is just to alert project contributors that the
+// (CSS) output file can not be modified under any circumstances.
+/*! Compiled SASS file | Do NOT modify from here !*/
+
+// Import Sass variables & helpers (functions, mixins & placeholders).
+@import "../helpers/init";
+
+//
+// This CSS document uses "Drupal Coding Standards"
+// [ https://drupal.org/node/1887862 ]
+//
+// For those unfamiliar with CSS terminology, these are the concise terms and
+// the rule set used in these standards.
+//
+// selector-1,
+// selector-2 {
+//   -webkit-property: value;
+//      -moz-property: value;
+//           property: value;
+// }
+//
+
+#{$blocks} {
+  .block-title {
+    color: $block-title-color;
+    line-height: 100%;
+    .home-section & {
+      margin-bottom: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 1.8em;
+    }
+  }
+
+  &-locale-language, &-admin-language {
+    position: absolute;
+    z-index: 100;
+    top: 0.9em;
+    left: 38px;
+    @include breakpoint(xsmall-small) {
+      left: 18px;
+    }
+    @include breakpoint(xsmall) {
+      left: 100px;
+    }
+    @include breakpoint(xxxsmall) {
+      left: 80px;
+    }
+    .contextual-links-wrapper {
+      display: none;
+    }
+    ul {
+      @extend %list-items-resets-defaults;
+      @extend %list-items-display-inline-block-defaults;
+      margin: 0;
+      line: {
+        height: em(19);
+      }
+      li {
+        margin: {
+          left: em(5);
+        }
+        a {
+          display: block;
+          @include link-colors($gray, $white, $white, $white);
+          @include alpha-background-color(transparent);
+          @include link-background-colors($gray, $gray, $gray);
+          @include hover-link(none);
+          text-transform: uppercase;
+          width: em(25, 12);
+          font: {
+            size: em(12);
+            weight: bold;
+          }
+          @include breakpoint(xsmall) {
+            @include link-colors($white, $white, $white, $white);
+            @include alpha-background-color(transparent);
+            @include link-background-colors($dark-orange, $dark-orange, $dark-orange);
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  &-menu-main {
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    .header-expanded & {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    ul.menu {
+      background: $navigation-bgcolor;
+      padding: 0 0 0 29px;
+      margin-bottom: 0;
+      margin-top: 0;
+      list-style: none;
+      clear: both;
+      position: relative;
+      @include breakpoint(xsmall-small) {
+        padding: 0 0 0 15px;
+      }
+      @include breakpoint(xsmall) {
+        display: none;
+        padding: 15px 0;
+        background: #334373;
+      }
+      li {
+        margin: 0;
+        padding: 0;
+        float: left;
+        //position: relative;
+        display: block;
+        &.expanded {
+          height: 130px;
+          @include breakpoint(xsmall) {
+            height: auto;
+          }
+        }
+        @include breakpoint(xsmall) {
+          float: none;
+          text-align: left;
+          &.login {
+            float: none !important;
+          }
+        }
+        &.login {
+          float: right;
+          background-color: #334373;
+          a {
+            color: #A8B1D6; //#7386bf;
+            font-weight: 400;
+            padding-left: 55px !important;
+            padding-right: 20px !important;
+            @include background-image("icons/male-user", trnasparent, 1, 20px, 0, no-repeat);
+            &:hover, &:focus, &.active {
+              background-position: 20px -70px;
+            }
+            @include breakpoint(xsmall-small) {
+              padding-left: 55px;
+              background-position: 20px 0;
+              &:hover, &:focus, &.active {
+                background-position: 20px -70px;
+              }
+            }
+            @include breakpoint(medium-small) {
+              padding-left: 40px;
+              background-position: 10px 0px;
+              &:hover, &:focus, &.active {
+                background-position: 10px -70px;
+              }
+            }
+            @include breakpoint(xsmall) {
+              background-position: 25px -10px;
+              &:hover, &:focus, &.active {
+                background-position: 25px -80px;
+              }
+            }
+          }
+        }
+        ul.menu {
+          background: $dark-orange;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          a {
+            @include link-colors($main-menu-link-color, $main-menu-link-color, $main-menu-link-color, $main-menu-link-color);
+            &:hover{
+              text-decoration: underline;
+            }
+            &.active:hover, &.section-link-active {
+              text-decoration: underline;
+            }
+            &.active-trail, &:focus {
+              //@include alpha-background-color($main-menu-link-bgcolor-hover);
+              text-decoration: underline;
+              font-weight: 900;
+            }
+            font-weight: 400;
+            height: 60px;
+            padding: em(17) em(10);
+            @include breakpoint(xsmall-small) {
+              font-size: em(14);
+              padding: em(24) em(10);
+            }
+            @include breakpoint(medium-small) {
+              margin-right: 0;
+              padding: em(26) em(10);
+              font-size: em(13);
+            }
+            @include breakpoint(xsmall) {
+              font-size: em(18);
+              padding: em(16) 25px;
+              line-height: 100%;
+              height: auto;
+            }
+          }
+          @include breakpoint(xsmall) {
+            display: block !important;
+            position: static;
+            top: auto;
+            left: auto;
+            padding: 0;
+            padding: 0 15px 0 15px;
+          }
+        }
+        a {
+          @include link-colors($main-menu-link-color, $main-menu-link-color-hover, $main-menu-link-color, $main-menu-link-color);
+          //@include alpha-background-color($main-menu-link-bgcolor);
+          //@include link-background-colors($main-menu-link-bgcolor-hover, $main-menu-link-bgcolor-hover, $main-menu-link-bgcolor-hover);
+          @include hover-link(none);
+          &.active:hover, &.section-link-active {
+            color: $main-menu-link-color-hover;
+          }
+          &.active-trail, &:focus {
+            //@include alpha-background-color($main-menu-link-bgcolor-hover);
+            color: $main-menu-link-color-hover;
+          }
+          font-weight: 900;
+          position: relative;
+          display: block;
+          color: $white;
+          text-transform: uppercase;
+          font-size: em(18);
+          padding: em(21) em(10);
+          height: 70px;
+          margin-right: em(5);
+          @include breakpoint(xsmall-small) {
+            font-size: em(14);
+            padding: em(28) em(10);
+          }
+          @include breakpoint(medium-small) {
+            margin-right: 0;
+            padding: em(30) em(10);
+            font-size: em(13);
+          }
+          @include breakpoint(xsmall) {
+            font-size: em(18);
+            padding: em(15) 25px;
+            line-height: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &-social-media2 {
+    position: absolute;
+    top: 141px;
+    right: 42px;
+    height: 27px;
+    a {
+      display: inline-block;
+    }
+    @include breakpoint(xsmall) {
+      top: 72px;
+    }
+    @include breakpoint(xxxsmall) {
+      right: 10px;
+      top: 60px;
+    }
+  }
+
+  &-sharethis {
+    position: absolute;
+    top: 150px;
+    right: 40px;
+    height: 27px;
+    span {
+      display: inline-block;
+      width: 27px;
+      height: 27px;
+      margin-left: 7px;
+      cursor: pointer;
+      &[class*=st_print] {
+        background-image: url('../../../images/icons/print-white-icon.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+      }
+      &[class*=st_twitter] {
+        background-image: url('../../../images/icons/twitter-white-icon.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+      }
+      &[class*=st_facebook] {
+        background-image: url('../../../images/icons/fb-white-icon.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        width: 15px;
+      }
+      &[class*=st_linkedin] {
+        background-image: url('../../../images/icons/linkedin-white-icon.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+      }
+    }
+  }
+
+  &-views-in-the-spotlight-b-list3promo {
+    /*position: absolute;
+    bottom: 75px;
+    left: 15%;*/
+    width: 73%;
+    margin: 120px auto 0 auto;
+  }
+
+  &-menu-block-3, &-menu-block-2 {
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        margin: 0;
+        display: block;
+        padding: 0;
+        list-style-image: none;
+        list-style-type: none;
+        width: 50%;
+        height: 50%;
+        float: left;
+        position: relative;
+        @include breakpoint(ipad) {
+          width: 100%;
+        }
+        a {
+          display: block;
+          min-height: 245px; //415px;
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: relative;
+          z-index: 1;
+          &:before {
+            content: '';
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            @include gradient-vertical(rgba(37, 54, 98, 0), rgba(37, 54, 98, 0.6), 10%, 90%);
+          }
+          .link-texts {
+            width: 70%;
+            position: absolute;
+            bottom: 35px;
+            left: 35px;
+            display: block;
+            font-weight: 900;
+            span {
+              display: inline;
+              &.link-prefix {
+                display: block;
+                text-transform: uppercase;
+                font-size: 1.2em;
+                text-shadow: 0 0 10px rgba(30,33,31,.1),0 0 10px rgba(30,33,31,.8);
+                color: $orange;
+                @include breakpoint(xxsmall) {
+                  font-size: 1em;
+                }
+              }
+              &.link-title {
+                text-transform: uppercase;
+                font-size: 2em;
+                color: $white;
+                margin: 0px 0 5px 0;
+                line-height: 110%;
+                text-shadow: 0 0 10px rgba(30,33,31,.1),0 0 10px rgba(30,33,31,.8);
+                @include breakpoint(xxsmall) {
+                  font-size: 1.4em;
+                }
+              }
+              &.link-suffix {
+                display: inline;
+                color: $white;
+                padding-right: 10px;
+                font-size: 1.3em;
+                font-weight: 700;
+                letterspacing: 1px;
+                @include breakpoint(xxsmall) {
+                  font-size: 1.1em;
+                }
+              }
+            }
+            &:after {
+              margin-bottom: 2px;
+              margin-left: 10px;
+              content: '';
+              display: inline-block;
+              width: 0;
+              height: 0;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-left: 13px solid $orange;
+              margin-right: -30px;
+            }
+          }
+          &:hover, &:focus {
+            &:before {
+              border: 10px solid $orange;
+            }
+            .link-texts {
+              span {
+                &.link-prefix {
+                  color: $white;
+                  text-shadow: 0 0 10px rgba(30,33,31,.1),0 0 10px rgba(30,33,31,.8);
+                }
+                &.link-title {
+                  color: $orange;
+                }
+                &.link-suffix {
+
+                }
+              }
+              &:after {
+                //background-position: bottom, left;
+                border-left: 13px solid $white;
+              }
+            }
+          }
+        }
+        @for $i from 1 through 12 {
+          &:nth-of-type(#{$i}) {
+            @if ($i > 2) {
+              width: 33.33333333333333333%;
+              @include breakpoint(ipad) {
+                width: 100%;
+              }
+            }
+            //width: 33,3333%;
+            a {
+              background-image: url('../../../../../../../../default/files/content/menu-images/about-us/#{$i}.jpg');
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-menu-block-1, &-menu-block-4 {
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        margin: 0;
+        display: block;
+        padding: 0;
+        list-style-image: none;
+        list-style-type: none;
+        width: 100%;
+        height: 33.333%;
+        float: left;
+        position: relative;
+        a {
+          display: block;
+          min-height: 245px; //141px; //275px;
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          text-shadow: 0 0 10px rgba(30,33,31,.1),0 0 10px rgba(30,33,31,.8);
+          color: $orange;
+          position: relative;
+          z-index: 1;
+          &:before {
+            content: '';
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            @include gradient-vertical(rgba(42, 55, 85, 0), rgba(42, 55, 85, 0.7), 10%, 90%);
+          }
+          .link-texts {
+            width: 75%;
+            position: absolute;
+            bottom: 35px;
+            left: 35px;
+            display: block;
+            font-weight: bold;
+            span {
+              display: block;
+              &.link-prefix {
+                text-transform: uppercase;
+                font-size: 1.2em;
+                @include breakpoint(xxsmall) {
+                  font-size: 1em;
+                }
+              }
+              &.link-title {
+                text-transform: uppercase;
+                font-size: 2em;
+                color: $white;
+                line-height: 120%;
+                display: inline;
+                @include breakpoint(xxsmall) {
+                  font-size: 1.4em;
+                }
+              }
+              &.link-suffix {
+                display: inline;
+                color: $white;
+                padding-right: 10px;
+              }
+            }
+            &:after {
+              margin-bottom: -4px;
+              margin-left: 10px;
+              content: '';
+              display: inline-block;
+              width: 0;
+              height: 0;
+              border-top: 15px solid transparent;
+              border-bottom: 15px solid transparent;
+              border-left: 20px solid $orange;
+              margin-right: -30px;
+            }
+          }
+          &:hover, &:focus {
+            &:before {
+              border: 10px solid $orange;
+            }
+            .link-texts {
+              span {
+                &.link-prefix {
+                  color: $white;
+                }
+                &.link-title {
+                  color: $orange;
+                }
+                &.link-suffix {
+
+                }
+              }
+              &:after {
+                border-left: 20px solid $white;
+              }
+            }
+          }
+        }
+        @for $i from 1 through 12 {
+          &:nth-of-type(#{$i}) {
+            a {
+              background-image: url('../../../../../../../../default/files/content/menu-images/services/#{$i}.jpg');
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-views-promoted-nodes-b-list1promo {
+    margin-bottom: 50px;
+    margin-left: 3px;
+  }
+
+  &-views--exp-solr-pages-solr-search {
+    position: absolute;
+    top: 0;
+    right: 262px;
+    @include breakpoint(xsmall-small) {
+      right: 211px;
+    }
+    @include breakpoint(medium-small) {
+      right: 184px;
+    }
+    @include breakpoint(xsmall) {
+      top: auto;
+      right: auto;
+      position: static;
+      background: $navigation-bgcolor;
+      .collapsed-main-menu & {
+        display: none;
+      }
+      &.position-fixed {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    }
+    .views-exposed-form {
+      .views-exposed-widgets {
+        margin-bottom: 0;
+        .views-exposed-widget {
+          margin: 0;
+          padding: 0;
+          .form-submit {
+            margin: 0;
+            padding: 0;
+            @include box-shadow(none);
+            @include border-radius(0);
+            @include link-colors($white);
+            @include alpha-background-color(transparent);
+            width: 50px;
+            height: 70px;
+            font-size: 0;
+            @include background-image('icons/loupe-icon', $dark-blue, 1, center, 0, no-repeat);
+            border: none;
+            &:hover, &:focus {
+              background-position: center -70px;
+            }
+          }
+        }
+        #edit-keyword-wrapper {
+          display: none;
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#293a66+0,293a66+14&0+0,1+14 */
+          /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+          background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI5M2E2NiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE0JSIgc3RvcC1jb2xvcj0iIzI5M2E2NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+          background: -moz-linear-gradient(left, rgba(41, 58, 102, 0) 0%, rgba(41, 58, 102, 1) 14%); /* FF3.6-15 */
+          background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(41, 58, 102, 0)), color-stop(14%, rgba(41, 58, 102, 1))); /* Chrome4-9,Safari4-5 */
+          background: -webkit-linear-gradient(left, rgba(41, 58, 102, 0) 0%, rgba(41, 58, 102, 1) 14%); /* Chrome10-25,Safari5.1-6 */
+          background: -o-linear-gradient(left, rgba(41, 58, 102, 0) 0%, rgba(41, 58, 102, 1) 14%); /* Opera 11.10-11.50 */
+          background: -ms-linear-gradient(left, rgba(41, 58, 102, 0) 0%, rgba(41, 58, 102, 1) 14%); /* IE10 preview */
+          background: linear-gradient(to right, rgba(41, 58, 102, 0) 0%, rgba(41, 58, 102, 1) 14%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00293a66', endColorstr='#293a66', GradientType=1); /* IE6-8 */
+          @include breakpoint(xsmall) {
+            display: block;
+            width: calc(100% - 50px);
+          }
+          input {
+            height: 30px;
+            margin: 20px 0 20px 60px;
+            font-size: 1em;
+            width: 300px;
+            padding: 3px;
+            @include breakpoint(xsmall) {
+              margin-left: 10px;
+              width: calc(100% - 10px);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  &-block-7 {
+    float: left;
+    margin-top: 25px;
+  }
+
+  &-social-media {
+    float: right;
+    margin-bottom: 60px;
+    a {
+      display: inline-block;
+    }
+    @include breakpoint(xxxsmall) {
+      width: auto;
+      margin: auto;
+      float: none;
+      margin-top: 120px;
+      text-align: center;
+      margin-bottom: 0px;
+      div {
+        display: inline;
+        margin-bottom: 0px;
+        p {
+          margin-bottom: 0px;
+        }
+        a {
+          display: inline-block;
+          img {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+  &-newsletter {
+    text-align: left;
+    float: right;
+    clear: both;
+    width: 295px;
+    @include breakpoint(xsmall) {
+      margin: auto;
+      float: none;
+      margin-top: 100px;
+    }
+    @include breakpoint(xxxsmall) {
+      margin-top: 0;
+      width: 100%;
+    }
+    @include breakpoint(xxxxsmall) {
+      display: none;
+    }
+  }
+}
+
+
+.block-menu-main ul.menu li.login a {color:#fff !important;}

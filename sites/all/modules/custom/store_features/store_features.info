@@ -1,0 +1,6 @@
+name = store_features
+description = Small too that can be used during module development
+core = 7.x
+version = 7.x-0.01dev1
+project = store_features
+mtime = 1445872442

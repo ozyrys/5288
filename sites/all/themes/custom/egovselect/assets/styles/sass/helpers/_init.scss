@@ -1,0 +1,193 @@
+
+//
+// @file
+// Initialization partial.
+//
+// To make it easier to use all variables and mixins in any SASS file in this
+// theme, each .scss file has a @import "init" declaration. And this _init.scss
+// file is in charge of importing all the other partials needed for the theme.
+//
+
+// =============================================================================
+// Variables
+// =============================================================================
+
+// Legacy IE support.
+//
+// These variables are used by many mixins to add additional CSS to support
+// specific versions of IE or specific vendor prefixes.
+$legacy-support-for-ie6:                  false;
+$legacy-support-for-ie7:                  false;
+$legacy-support-for-ie8:                  true;
+
+// CSS3
+//
+// Define the vendor prefixes default settings.
+$prefix-for-webkit:                       true;
+$prefix-for-mozilla:                      true;
+$prefix-for-microsoft:                    true;
+$prefix-for-opera:                        true;
+$prefix-for-spec:                         true;
+// Specify the CSS3 box-sizing method.
+// The browser default is content-box, deep_blue theme defaults to border-box.
+$box-model:                               border-box;
+
+// Support for retina elements
+$media-retina:'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)';
+
+// Typography
+//
+// The following font family declarations are based on the Microsoft core web
+// fonts which are common fonts available on most computer systems.
+$sans-serif:                              sans-serif;
+// Define all font families which will be used through all pages.
+$josefin-sans:                            'Lato', 'Josefin Sans', Helvetica, sans-serif;
+$pt-sans:                                 'PT Sans', sans-serif;
+// Define the color palette which will be used through all pages.
+$white:                                   #fff;
+$dark-white:                              #f9f9fa;
+$lightest-gray:                           #f3f3f3;
+$lighter-gray:                            #dcdcdc;
+$light-gray:                              #c3c4c5;
+$inbetween-gray:                      #808080;
+$gray:                                    #484848;  // egov Color
+$dark-gray:                               #939597;
+$darker-gray:                             #999;
+$three-gray:                               #333;
+$darkest-gray:                            #222;
+$cool-gray:                               #4b4b4b; // egov color
+$light-gray:                               #cdcbbc;
+$black:                                   #000;
+$light-black:                            #2f2f2f;
+$purple:                                    #871642;
+$red:                                     #cc0000;
+$pink:                                    #fff4f4;
+$pinky-red:                            #f5124e;
+$green:                                  #439621;
+$blue:                                    #1b75d1;
+$light-blue:                            #fcfcfc; // egov color
+$dark-blue:                             #253662; //#293a66;
+$orange:                                 #ef8450;
+$light-orange:                           #f5eae4;
+$darker-orange:                          #d96e3a;
+$dark-orange:                            #c15622; //#c76737; // egov color
+$darkest-orange:                         #AD4E1F;
+$dark:                                    #21252e;
+$light:                                    #f3f3f3; // egov color
+// Now create the basis (font family/size and text/link colors) set on the root
+// html and body elements.
+$base-font-family:                        $josefin-sans;
+$base-font-size:                          16px;
+$base-line-height:                        150%;
+$base-background-color:                   $white;
+$base-text-color:                         #555555;
+$base-link-color:                         $darkest-orange;
+$block-title-color:                        $darker-orange;
+$navigation-bgcolor:                    $dark-blue;
+$body-background:                     $dark;
+$page-background:                     $light;
+$main-menu-link-color:                $white;
+$main-menu-link-color-hover:       $orange;
+$main-menu-link-bgcolor:             $dark-blue;
+$main-menu-link-bgcolor-hover:    $dark-blue;
+$footer-text-color:                       #898E90;//#606266;
+$footer-link-color:                        #898E90;//#606266;
+$container-padding: 40px;
+$container-padding-small: 20px;
+$container-padding-very-small: 10px;
+// Define all other font sizes which will be used for different headings.
+$h1-font-size:                            2  * $base-font-size;
+$h2-font-size:                            1.5 * $base-font-size;
+$h3-font-size:                            1.3   * $base-font-size;
+$h4-font-size:                            1     * $base-font-size;
+$h5-and-h6-font-size:                     1.25  * $base-font-size;
+
+// Layout.
+//
+// Define all CSS selectors for sections which compose the page layout.
+$header:                                  '#navbar';
+$main:                                    '#main';
+$top:                                     '#top';
+$content:                                 '#content';
+// Define all required variables for the Grid System.
+// Number of columns (especially for Bootstrap framework).
+$grid-columns:                            12;
+// Gutters width (as padding).
+$grid-gutter-width:                       30px;
+// Extra-small screens (Smartphones).
+$extra-small-container-width:             100%;
+// Small screens (Tablets).
+$small-container-width:                   100%;
+// Medium screens (Desktops & Laptops).
+$medium-container-width:                  100%; //1200px;
+// Large screens (Desktops with wide screens).
+$large-container-width:                   100%; //1310px;
+
+
+// Components (SMACSS module).
+//
+// Define all CSS selectors for "System" (modules).
+$pages:                                   '.page';
+$regions:                                 '.region';
+$region-tools:                            '#{$regions}-tools';
+$region-header:                           '#{$regions}-header';
+$region-navigation:                       '#navigation';
+$region-top:                              $top;
+$region-content:                          $content;
+$region-bottom:                   '#bottom';
+$region-footer:                           '#footer';
+// Define all CSS selectors for "Block" (modules).
+$blocks:                                  '.block';
+// Define all CSS selectors for "Views" (modules).
+$view:                                    '.view';
+$views:                                   '.views';
+$views-row-first:                         '#{$views}-row-first';
+// Define all CSS selectors for "Node" (modules).
+$nodes:                                   '.node';
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding:            8px !default;
+//** Padding for cells in `.table-condensed`.
+$table-condensed-cell-padding:  5px !default;
+
+//** Default background color used for all tables.
+$table-bg:                      transparent !default;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #f9f9f9 !default;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #f5f5f5 !default;
+$table-bg-active:               $table-bg-hover !default;
+
+//** Border color for table and cell borders.
+$table-border-color:            #ddd !default;
+
+$state-success-bg:               #dff0d8 !default;
+$state-info-bg:                  #d9edf7 !default;
+$state-warning-bg:               #fcf8e3 !default;
+$state-danger-bg:                #f2dede !default;
+
+//** Menu button.
+$menu_button_width: 30px;                    // The width of the button area
+$menu_button_height: 30px;                   // The height of the button area
+$menu_bar_thickness: 3px;                    // The thickness of the button bars
+$menu_button_pad: 3px;                      // The left/right padding between button area and bars.
+$menu_button_bar_space: 4px;                // The spacing between button bars
+$menu_button_transistion_duration: 0.3s;     // The transition duration
+
+// =============================================================================
+// Other partials to be shared with all .scss files.
+// =============================================================================
+
+// Add custom helper mixins.
+@import "mixins/utilities";
+@import "mixins/layout";
+@import "mixins/css3";
+@import "mixins/typography";
+@import "mixins/images";
+
+// Add custom helper placeholders.
+@import "placeholders";

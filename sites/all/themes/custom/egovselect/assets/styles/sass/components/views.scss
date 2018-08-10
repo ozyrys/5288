@@ -1,0 +1,591 @@
+
+//
+// @file
+// "Views" module style defintion.
+//
+// This document includes classes/ID selectors related to the "Views" module.
+// It defines specific styling for how elements should look like through pages.
+//
+
+// The following comment starts with a "!". So it will not be removed during
+// the (SASS) compilation. It is just to alert project contributors that the
+// (CSS) output file can not be modified under any circumstances.
+/*! Compiled SASS file | Do NOT modify from here !*/
+
+// Import Sass variables & helpers (functions, mixins & placeholders).
+@import "../helpers/init";
+
+//
+// This CSS document uses "Drupal Coding Standards"
+// [ https://drupal.org/node/1887862 ]
+//
+// For those unfamiliar with CSS terminology, these are the concise terms and
+// the rule set used in these standards.
+//
+// selector-1,
+// selector-2 {
+//   -webkit-property: value;
+//      -moz-property: value;
+//           property: value;
+// }
+//
+
+.view-content {
+  @extend %clearfix-defaults;
+}
+
+#{$view} {
+  &-display-id-b_list3promo {
+    color: $white;
+    h2 {
+      color: $white;
+      font-weight: 600;
+    }
+    .field-name-title h2 {
+      line-height: 100%;
+      height: 28px;
+      overflow: hidden;
+      margin-bottom: 5px;
+      text-shadow: 0 0 10px rgba(30,33,31,.1),0 0 10px rgba(30,33,31,.8);
+      @include breakpoint(xsmall) {
+        font-size: 1.2em;
+      }
+    }
+    .field-name-field-textfield, .field-name-body {
+      text-shadow: 0 0 10px rgba(30,33,31,.1),0 0 10px rgba(30,33,31,.8);
+      font-weight: bold;
+    }
+    .field-name-field-url {
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+    .flexslider {
+      position: relative;
+      .flex-pauseplay {
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        line-height: 11px;
+        font-size: 0;
+        .flex-pause {
+          display: inline-block;
+          width: 13px;
+          height: 12px;
+          padding: 1px 0;
+          &:hover, &:focus {
+            text-decoration: none;
+          }
+          &:before {
+            font-size: 14px;
+            font-family: Font Awesome\ 5 Free;
+            content: "\f28b";
+          }
+        }
+        .flex-play {
+          display: inline-block;
+          padding: 1px 0;
+          width: 13px;
+          height: 12px;
+          &:hover, &:focus {
+            text-decoration: none;
+          }
+          &:before {
+            font-size: 14px;
+            font-family: Font Awesome\ 5 Free;
+            content: "\f144";
+          }
+        }
+      }
+      .flex-control-nav {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          padding: 0;
+          vertical-align: baseline;
+          margin: 0 4px;
+          display: inline-block;
+          zoom: 1;
+          a {
+            width: 13px;
+            height: 13px;
+            display: block;
+            border: 2px solid $dark-orange;
+            cursor: pointer;
+            text-indent: -9999px;
+            color: $white;
+            /*-webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+            -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);*/
+            &.flex-active {
+              background: $dark-orange;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-in-the-spotlight {
+    .node{
+      padding-left: 3px;
+    }
+    .node-job {
+      padding-left: 120px;
+      @include background-image('icons/job-icon', false, 1, left, top, no-repeat);
+      .field-name-field-url {
+        .field-label {
+          display: none;
+        }
+      }
+    }
+    /*.field {
+
+      [class*="title"] {
+
+        h2,
+        h3 {
+          font: {
+            weight:600;
+          }
+          color:white;
+          margin:0 0 5px 0;
+          overflow:hidden;
+          text-shadow:0 0 0 transparent;
+
+          a {
+            color:white;
+            text: {
+              decoration:none;
+            }
+
+            &:hover,
+            &:focus {
+              color:$orange;
+            }
+          }
+        }
+
+        @include breakpoint(xsmall) {
+          font-size:1.2em;
+        }
+      }
+      [class*="description"],
+      [class*="body"] {
+        color:white;
+
+        * {
+          color:white;
+        }
+      }
+    }*/
+    .field-name-field-url {
+      .field-item {
+        border-right: 12px solid $dark-orange;
+        padding-right: 10px;
+        a {
+          display: block;
+          color: $white;
+          text-transform: uppercase;
+          font-weight: 600;
+          background: $dark-orange;
+          height: 34px;
+          line-height: 34px;
+          padding: 0 12px;
+          &:hover {
+            text-decoration: none;
+          }
+          .ext {
+            display: none;
+          }
+        }
+      }
+      &:hover {
+        .field-item {
+          border-right: 12px solid $darkest-orange;
+          a {
+            background: $darkest-orange;
+          }
+        }
+      }
+    }
+  }
+  &-promoted-nodes {
+    .views-field-view-node {
+      .field-content {
+        position: relative;
+        display: block;
+        height: 38px;
+        background: $dark-orange;
+        float: left;
+        clear: both;
+        &:after {
+          left: 100%;
+          top: 0;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          border-top: 19px solid transparent;
+          border-bottom: 19px solid transparent;
+          border-left: 15px solid $dark-orange;
+        }
+        @include breakpoint(xsmall) {
+          height: 32px;
+          &:after {
+            border-top: 16px solid transparent;
+            border-bottom: 16px solid transparent;
+          }
+        }
+        a {
+          color: $white;
+          display: block;
+          font-size: 1.1em;
+          line-height: 38px;
+          text-transform: uppercase;
+          font-weight: 900;
+          padding: 0 18px;
+          &:hover {
+            text-decoration: none;
+          }
+          @include breakpoint(xsmall) {
+            font-size: 0.8em;
+            line-height:32px;
+            padding: 0 14px;
+          }
+        }
+        &:hover {
+          background: $darkest-orange;
+          &:after {
+            border-left: 15px solid $darkest-orange;
+          }
+        }
+      }
+    }
+  }
+
+  &-display-id-employee {
+    th, td {
+      text-align: center;
+      &.views-field-title {
+        text-align: left;
+      }
+    }
+    .views-field-field-file {
+      .file-icon {
+        display: none;
+      }
+      .content {
+        .file {
+          a {
+           color: $base-text-color;
+          }
+        }
+      }
+    }
+    .views-field-field-file-1 {
+      .file-icon {
+        display: none;
+      }
+      .content {
+        .file {
+          a {
+            font-size: 0;
+            display: block;
+            width: 20px;
+            height: 22px;
+            margin: auto;
+            @include background-image('icons/download-icon', false, 1, 0, 0, no-repeat);
+            -webkit-transition: none;
+            -moz-transition: none;
+            -o-transition: none;
+            transition: none;
+            &:hover {
+              background-position: 0 -21px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // View Job on Homepage
+  &-jobs-homepage {
+    clear:both;
+    overflow:hidden;
+
+    .view-content {
+
+      .views-rows {
+        display:block;
+        margin:0;
+        padding:0;
+        list: {
+          style:none;
+        }
+      }
+      .views-row {
+        display:block;
+        margin:0;
+        padding:0;
+        overflow:hidden;
+        list: {
+          style:none;
+          style-image:none;
+        }
+
+        @media only screen and (max-height:900px) {
+
+          &:nth-child(6) {
+            display:none;
+          }
+        }
+        @media only screen and (max-height:800px) {
+
+          &:nth-child(5),
+          &:nth-child(6) {
+            display:none;
+          }
+        }
+        @media only screen and (max-height:700px) {
+
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(6) {
+            display:none;
+          }
+        }
+        @media only screen and (max-height:600px) {
+
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(6) {
+            display:none;
+          }
+        }
+        @media only screen and (max-height:500px) {
+
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(6) {
+            display:none;
+          }
+        }
+
+        @include breakpoint(small) {
+
+          @media only screen and (max-height:900px) {
+
+            &:nth-child(5),
+            &:nth-child(6) {
+              display:none;
+            }
+          }
+          @media only screen and (max-height:800px) {
+
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6) {
+              display:none;
+            }
+          }
+          @media only screen and (max-height:700px) {
+
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6) {
+              display:none;
+            }
+          }
+          @media only screen and (max-height:600px) {
+
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6) {
+              display:none;
+            }
+          }
+        }
+        @include breakpoint(xsmall) {
+          display:block !important;
+
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(6) {
+            display:block !important;
+          }
+        }
+
+        .cta {
+          display:block;
+          color:white;
+          text: {
+            decoration:none;
+          }
+          cursor:pointer;
+          margin:0;
+          padding:20px 30px;
+          position:relative;
+          background:$orange;
+
+          @include breakpoint(xsmall) {
+            padding: {
+              right:20px;
+              left:20px;
+            }
+          }
+
+          * {
+            color:white;
+          }
+
+          [class*="title"] {
+            font: {
+              size:1.2em;
+              weight:700;
+            }
+            line: {
+              height:1.2;
+            }
+            margin: {
+              bottom:5px;
+            }
+          }
+          [class*="description"] {
+            font: {
+              size:1em;
+              weight:400;
+            }
+            line: {
+              height:1.2;
+            }
+            color:white;
+            margin:0;
+
+            p {}
+            ul,
+            ol {
+              padding: {
+                left:20px;
+              }
+            }
+          }
+
+          &:hover,
+          &:focus {
+            text: {
+              decoration:none;
+            }
+            background:$dark-blue;
+          }
+        }
+
+        &:nth-child(odd) {
+
+          .cta {
+            background:$orange;
+
+            &:hover,
+            &:focus {
+              background:$dark-blue;
+            }
+          }
+        }
+        &:nth-child(even) {
+
+          .cta {
+            background:$dark-orange;
+
+            &:hover,
+            &:focus {
+              background:$dark-blue;
+            }
+          }
+        }
+      }
+    }
+    .more-link {
+      clear:both;
+      text: {
+        align:center;
+      }
+      margin:0;
+      padding:20px 0 0 0;
+
+      a {
+        display:inline-block;
+        font: {
+          size:1.1em;
+        }
+        color:white;
+        text: {
+          transform:uppercase;
+          decoration:none;
+        }
+        margin:0 auto;
+        padding:10px 18px;
+        background:$orange;
+
+        &:hover,
+        &:focus {
+          background:$dark-blue;
+        }
+      }
+    }
+  }
+  // View Search Job
+  &-search-jobs {
+    clear:both;
+
+    .view-header {
+      margin:0 0 20px 0;
+    }
+    .view-content {
+      margin:0 0 10px 0;
+
+      .item-list > ol,
+      > ol,
+      .views-rows {
+        display:block;
+        margin:0;
+        padding:0;
+        list: {
+          style:none;
+        }
+      }
+      .item-list > ol > li,
+      > ol > li,
+      .views-row {
+        display:block;
+        margin:0;
+        padding:8px;
+        overflow:hidden;
+        list: {
+          style:none;
+          style-image:none;
+        }
+        background:$light;
+
+        &:nth-child(odd) {
+          background:$light;
+        }
+        &:nth-child(even) {
+          background:white;
+        }
+      }
+    }
+  }
+}

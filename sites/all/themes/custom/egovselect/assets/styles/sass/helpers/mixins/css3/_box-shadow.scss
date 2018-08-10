@@ -1,0 +1,28 @@
+
+//
+// @file
+// SASS - Box Shadow mixin.
+//
+
+// The default values when no argument is provided to the box-shadow mixin.
+//
+// The browser default is none, DeepBlue defaults to:
+//
+// The default horizontal offset: 0px.
+// The default vertical offset: 0px.
+// The default blur length: 5px.
+// The default color: #333.
+//
+$default-box-shadow: 0px 0px 5px $darker-gray !default;
+
+// Provides a cross-browser CSS box shadow using CSS3.
+// Currently supported in: Webkit, Gecko.
+//
+// $size: 0px 0px 5px #333 [ none | -h-chadow- | -v-shadow- |-blur- | -spread- | -color- | inset | initial | inherit ].
+//
+@mixin box-shadow(
+  $shadow: $default-box-shadow
+) {
+  
+  @include prefixer(box-shadow, $shadow, webkit moz spec);
+}

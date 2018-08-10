@@ -1,0 +1,20 @@
+
+//
+// @file
+// SASS - Border Radius mixin.
+//
+
+// The length of a border-radius to be used by default.
+$default-border-radius: 5px !default;
+
+// Round all corners by a specific amount, defaults to value of
+// `$default-border-radius`.
+//
+// $radius: -length- [ -percent- | initial | inherit ]
+//
+@mixin border-radius(
+  $radius: $default-border-radius
+) {
+  
+  @include prefixer(border-radius, $radius, webkit moz spec);
+}

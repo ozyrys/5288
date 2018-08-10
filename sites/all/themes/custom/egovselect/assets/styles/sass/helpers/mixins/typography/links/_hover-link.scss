@@ -1,0 +1,48 @@
+
+//
+// @file
+// SASS - Hover link mixin.
+//
+
+// The state of an hover link to be used by default.
+$default-hover-link: default !default;
+
+// Define the state of a link when you hover over it.
+//
+// $state: default [ underline | hoverline | none ]
+//
+@mixin hover-link(
+  $state: $default-hover-link
+) {
+  
+  @if $state == underline {
+    text-decoration: $state;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+  @if $state == hoverline {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+  @else if $state == none {
+    &:hover,
+    &:focus {
+      text-decoration: $state;
+    }
+  }
+  @else if $state == default {
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+  @else {
+    @warn "'#{$state}' is not a valid hover link state.";
+  }
+}

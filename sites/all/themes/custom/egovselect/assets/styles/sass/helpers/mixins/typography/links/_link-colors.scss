@@ -1,0 +1,106 @@
+
+//
+// @file
+// SASS - Link colors mixin.
+//
+
+// @mixin
+//
+// Set all the colors for a link with one mixin call.
+// Order of arguments is:
+//
+// 1. normal
+// 2. hover
+// 3. focus
+// 4. active
+// 5. active-trail
+// 6. visited
+//
+// Those states not specified will inherit.
+//
+@mixin link-colors(
+  $normal:        $base-link-color,
+  $hover:         false,
+  $focus:         false,
+  $active:        false,
+  $active-trail:  false,
+  $visited:       false
+) {
+  
+  color: $normal;
+  @if $hover {
+    &:hover {
+      color: $hover;
+    }
+  }
+  @if $focus {
+    &:focus {
+      color: $focus;
+    }
+  }
+  @if $active-trail {
+    &.active-trail {
+      color: $active-trail;
+    }
+  }
+  @if $active {
+    &.active {
+      color: $active;
+    }
+  }
+  @if $visited {
+    &:visited {
+      color: $visited;
+    }
+  }
+}
+
+// @mixin
+//
+// Set all the background colors for a link with one mixin call.
+// Order of arguments is:
+//
+// 1. hover
+// 2. focus
+// 3. active
+// 4. active-trail
+//
+// Those states not specified will inherit.
+//
+@mixin link-background-colors(
+  $hover:         false,
+  $focus:         false,
+  $active:        false,
+  $active-trail:  false
+) {
+  
+  @if $hover {
+    &:hover {
+      background: {
+        color: $hover;
+      }
+    }
+  }
+  @if $focus {
+    &:focus {
+      background: {
+        color: $focus;
+      }
+    }
+  }
+  @if $active-trail {
+    &.active-trail {
+      background: {
+        color: $active-trail;
+      }
+    }
+  }
+  @if $active {
+    &:active,
+    &.active {
+      background: {
+        color: $active;
+      }
+    }
+  }
+}

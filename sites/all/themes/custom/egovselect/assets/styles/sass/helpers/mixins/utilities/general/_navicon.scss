@@ -1,0 +1,32 @@
+
+//
+// @file
+// SASS - Navicon mixin.
+//
+
+// This mixin outpouts a ""Three Line Menu Navicon"" which is used as the
+// toggle for collapsed "Main" navigation menu.
+// (Needs to be applied on a <button type="button"> tag element).
+@mixin navicon(
+  $thickness: 4px,
+  $size:      30px,
+  $color:     $base-text-color,
+  $alpha:     1
+) {
+  @include pseudo-element(after, $size, $thickness) {
+    @include alpha-background-color($color, $alpha);
+    top: 50%;
+    left: 0;
+    margin: {
+      top: -($thickness / 2);
+    }
+  }
+  @include alpha-background-color(transparent);
+  width: $size;
+  height: $thickness*5;
+  border: {
+    width: $thickness 0;
+    style: solid;
+    @include alpha-color($color, $alpha);
+  }
+}

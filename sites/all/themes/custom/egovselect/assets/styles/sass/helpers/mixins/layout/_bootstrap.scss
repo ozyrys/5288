@@ -1,0 +1,161 @@
+
+//
+// @file
+// SASS - Bootstrap "Grid System" mixins.
+//
+
+// @function.
+//
+// Returns a half gutter width.
+@function get-half-gutter($gutter: $grid-gutter-width) {
+  $half-gutter: $gutter / 2;
+  // Special handling in case gutter has an odd number of pixels.
+  @if unit($gutter) == "px" {
+    $half-gutter: floor($half-gutter);
+    @return em($half-gutter);
+  }
+  @return em($half-gutter);
+}
+
+// Generate a "Grid System" layout.
+@mixin make-grid-layout(
+  $tag: 'div',
+  $gutter: $grid-gutter-width
+) {
+
+  // Columns wrapper.
+  //
+  & {
+    @include bootstrap-make-row($gutter);
+
+    // Columns.
+    //
+    > #{$tag} {
+      @extend %grid-columns-defaults;
+      @if $gutter != 0 {
+        padding: {
+          right: get-half-gutter($gutter);
+          left: get-half-gutter($gutter);
+        }
+      }
+    }
+  }
+}
+
+// Generate centered container element.
+@mixin bootstrap-container-fixed(
+  $gutter: $grid-gutter-width
+) {
+  
+  @extend %clearfix-defaults;
+  position: relative;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  padding: {
+    right: get-half-gutter($gutter);
+    left: get-half-gutter($gutter);
+  }
+}
+
+// Creates a wrapper for a series of columns.
+@mixin bootstrap-make-row(
+  $gutter: $grid-gutter-width
+) {
+  
+  @extend %clearfix-defaults;
+  @if $gutter != 0 {
+    margin: {
+      right: -(get-half-gutter($gutter));
+      left: -(get-half-gutter($gutter));
+    }
+  }
+}
+
+// Creates common styles for extra-small, small, medium and large grid columns.
+@mixin bootstrap-make-grid-columns(
+  $columns: $grid-columns
+) {
+  
+  @for $col-span from 1 through $columns {
+    @each $screen in xs, sm, md, lg {
+      .col-#{$screen}-#{$col-span} {
+        @extend %bootstrap-grid-columns-defaults;
+      }
+    }
+  }
+}
+
+// Create grid for specific screen display.
+@mixin bootstrap-make-grid(
+  $screen:  md,
+  $columns: $grid-columns
+) {
+  
+  @include bootstrap-float-grid-columns($screen);
+  @for $col-span from 0 through $columns {
+    $ratio: percentage(($col-span / $columns));
+    @include bootstrap-loop-grid-columns($col-span, $screen, $ratio, width);
+    @include bootstrap-loop-grid-columns($col-span, $screen, $ratio, pull);
+    @include bootstrap-loop-grid-columns($col-span, $screen, $ratio, push);
+    @include bootstrap-loop-grid-columns($col-span, $screen, $ratio, offset);
+  }
+}
+
+// Common columns classes.
+@mixin bootstrap-float-grid-columns(
+  $screen,
+  $col-span: 1,
+  $list: '.col-#{$screen}-#{$col-span}'
+) {
+  
+  @for $col-span from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .col-#{$screen}-#{$col-span}";
+  }
+  #{$list} {
+    float: left;
+  }
+}
+
+// Columns, offsets, pushes, and pulls classes.
+@mixin bootstrap-loop-grid-columns(
+  $index,
+  $screen,
+  $ratio,
+  $type
+) {
+  
+  @if ($type == width) and ($index > 0) {
+    .col-#{$screen}-#{$index} {
+      width: $ratio;
+    }
+  }
+  @if ($type == push) and ($index > 0) {
+    .col-#{$screen}-#{$type}-#{$index} {
+      left: $ratio;
+    }
+  }
+  @if ($type == push) and ($index == 0) {
+    .col-#{$screen}-#{$type}-#{$index} {
+      left: auto;
+    }
+  }
+  @if ($type == pull) and ($index > 0) {
+    .col-#{$screen}-#{$type}-#{$index} {
+      right: $ratio;
+    }
+  }
+  @if ($type == pull) and ($index == 0) {
+    .col-#{$screen}-#{$type}-#{$index} {
+      right: auto;
+    }
+  }
+  @if ($type == offset) {
+    .col-#{$screen}-#{$type}-#{$index} {
+      margin: {
+        left: $ratio;
+      }
+    }
+  }
+}

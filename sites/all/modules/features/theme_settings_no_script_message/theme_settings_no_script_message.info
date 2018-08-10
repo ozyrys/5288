@@ -1,0 +1,10 @@
+name = Theme settings - no script message
+core = 7.x
+package = update-2018-03-01
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = theme_default
+features[variable][] = theme_egovselect_settings
+project path = sites/all/modules/features

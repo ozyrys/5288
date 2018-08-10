@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Theme settings - no script message feature.
+ */
+
+include_once 'theme_settings_no_script_message.features.inc';

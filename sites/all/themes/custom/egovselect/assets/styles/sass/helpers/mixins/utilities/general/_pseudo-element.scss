@@ -1,0 +1,29 @@
+
+//
+// @file
+// SASS - Pseudo-Element mixin.
+//
+
+// @mixin
+//
+// This mixin outpouts a :before or :after pseudo-element.
+//
+@mixin pseudo-element(
+  $selector,
+  $width,
+  $height
+) {
+    
+  @if $selector == before or $selector == after {
+    position: relative;
+    &:#{$selector} {
+      @extend %pseudo-elements-defaults;
+      width: $width;
+      height: $height;
+      @content;
+    }
+  }
+  @else {
+    @warn "'#{$selector}' is not a valid pseudo-element.";
+  }
+}

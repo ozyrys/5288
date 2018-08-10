@@ -1,0 +1,23 @@
+
+//
+// @file
+// SASS - Transforms mixin.
+//
+
+// The default transformation values when no argument is provided to the transform
+// mixin: [ none | transform-functions | initial | inherit ].
+//
+// The browser default is "none", this mixin defaults to "rotate(45deg)".
+//
+$default-transform: rotate(45deg);
+
+// Apply a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+//
+// $transform: transform-functions [ none | initial | inherit ]
+//
+@mixin transform(
+  $transform: $default-transform
+) {
+  
+  @include prefixer(transform, $transform, webkit moz ms o spec);
+}

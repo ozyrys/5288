@@ -1,0 +1,33 @@
+
+//
+// @file
+// SASS - Prefixer mixin.
+//
+
+// This mixin outpouts a simple color transparency.
+@mixin alpha-color(
+  $color: $base-text-color,
+  $alpha: 1
+) {
+  
+  @if ($legacy-support-for-ie8 and $color != transparent and $alpha != 1) {
+    color: $color; // IE8- needs a solid background color.
+  }
+  @if ($color == transparent or $alpha == 1) {
+    color: $color;
+  }
+  @else {
+    color: rgba($color, $alpha);
+  }
+}
+
+// This mixin outpouts a background transparency.
+@mixin alpha-background-color(
+  $color: $base-background-color,
+  $alpha: 1
+) {
+  
+  background: {
+    @include alpha-color($color, $alpha);
+  }
+}

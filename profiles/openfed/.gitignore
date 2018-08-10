@@ -1,0 +1,8 @@
+LICENSE.txt
+#libraries/
+#modules/contrib/
+#themes/contrib/
+.buildpath
+.settings
+.settings/
+.project

@@ -1,0 +1,24 @@
+
+//
+// @file
+// SASS - Appearance mixin.
+//
+
+// The default property when no argument is provided to the appearance
+// mixin: [ normal | icon | window | button | menu | field ].
+//
+// The browser default is normal, DeepBlue defaults to none.
+//
+$default-appearance: none !default;
+
+// Allow to make an element look like a standard user interface element.
+// Currently supported in: Opera, Gecko, Webkit.
+//
+// $appearance: none [ normal | icon | window | button | menu | field ].
+//
+@mixin appearance(
+  $appearance: $default-appearance
+) {
+  
+  @include prefixer(appearance, $appearance, webkit moz ms o spec);
+}

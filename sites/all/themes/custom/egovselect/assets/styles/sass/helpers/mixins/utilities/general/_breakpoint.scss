@@ -1,0 +1,90 @@
+
+//
+// @file
+// SASS - Breakpoint mixin.
+//
+
+// Specify the different (media queries) breakpoints for responsiveness.
+// Also selector hack for Webkit browser (saf3+, chrome1+).
+@mixin breakpoint(
+  $screen: medium
+) {
+  // Super Extra-small screens (smartphones).
+  @if $screen == xxxxsmall {
+    @media (max-width: 350px) {
+      @content;
+    }
+  }
+  // Super Extra-small screens (smartphones).
+  @if $screen == xxxsmall {
+    @media (max-width: 450px) {
+      @content;
+    }
+  }
+  // Super Extra-small screens (smartphones).
+  @if $screen == xxsmall {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  // Extra-small screens (smartphones).
+  @if $screen == ipad {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  // Extra-small screens (smartphones).
+  @if $screen == ipadpro {
+    @media (max-width: 1023px) {
+      @content;
+    }
+  }
+  // Extra-small screens (smartphones).
+  @if $screen == xsmall {
+    @media (max-width: 787px) {
+      @content;
+    }
+  }
+  // Small screens (tablets).
+  @if $screen == medium-small {
+    @media (max-width: 875px) {
+      @content;
+    }
+  }
+  // Small screens (tablets).
+  @else if $screen == small {
+    @media (min-width: 788px) and (max-width: 1230px) {
+      @content;
+    }
+  }
+  // Both extra-small & small screens (Smartphones& tablets).
+  @else if $screen == xsmall-small {
+    @media (max-width: 1230px) {
+      @content;
+    }
+  }
+  // Medium screens (desktops & laptops).
+  @else if $screen == medium {
+    @media (min-width: 1231px) and (max-width: 1349px) {
+      @content;
+    }
+  }
+  // Both laptops narrow & wide screens.
+  @else if $screen == medium-large {
+    @media (max-width: 1350px) {
+      @content;
+    }
+  }
+  // Large screens (desktops with wide screens).
+  @else if $screen == large {
+    @media (min-width: 1350px) {
+      @content;
+    }
+  }
+  // Selector hack (saf3+, chrome1+).
+  @else if $screen == webkit {
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      @content;
+    }
+  }
+}

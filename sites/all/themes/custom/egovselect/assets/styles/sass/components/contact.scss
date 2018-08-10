@@ -1,0 +1,32 @@
+
+//
+// @file
+// "Contact" module style defintion.
+//
+// This document includes classes/ID selectors related to the "Views" module.
+// It defines specific styling for how elements should look like through pages.
+//
+
+// The following comment starts with a "!". So it will not be removed during
+// the (SASS) compilation. It is just to alert project contributors that the
+// (CSS) output file can not be modified under any circumstances.
+/*! Compiled SASS file | Do NOT modify from here !*/
+
+// Import Sass variables & helpers (functions, mixins & placeholders).
+@import "../helpers/init";
+
+//
+// This CSS document uses "Drupal Coding Standards"
+// [ https://drupal.org/node/1887862 ]
+//
+// For those unfamiliar with CSS terminology, these are the concise terms and
+// the rule set used in these standards.
+//
+// selector-1,
+// selector-2 {
+//   -webkit-property: value;
+//      -moz-property: value;
+//           property: value;
+// }
+//
+

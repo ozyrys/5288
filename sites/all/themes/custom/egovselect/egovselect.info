@@ -1,0 +1,42 @@
+name = eGov Select
+description = Theme based on Nerra.
+screenshot = screenshot.png
+engine = phptemplate
+core = 7.x
+php = 5.3.x
+base theme = nerra
+
+; REGIONS
+regions[tools] = Tools
+regions[header] = Header
+regions[navigation] = Navigation
+regions[top] = Top
+regions[breadcrumb] = Breadcrumb
+regions[content_top] = Content Pre
+regions[content] = Content
+regions[content_bottom] = Content Post
+regions[sidebar_first] = Sidebar Left
+regions[sidebar_second] = Sidebar Right
+regions[bottom] = Bottom
+regions[footer_top] = Footer top
+regions[footer] = Footer
+regions[footer_bottom] = Footer bottom
+
+regions[front_slide_highlights] = Front Slide - Highlights
+regions[front_slide_about] = Front Slide - About
+regions[front_slide_services] = Front Slide - Services
+regions[front_slide_job]  = Front Slide - Job
+regions[front_slide_contact]  = Front Slide - Contact
+
+; STYLESHEETS
+stylesheets[screen][] = assets/styles/bootstrap/bootstrap.css
+stylesheets[screen][] = assets/styles/bootstrap/bootstrap-responsive.css
+stylesheets[screen][] = assets/styles/design.css
+stylesheets[screen][] = assets/styles/fontawesome-all.min.css
+stylesheets[print][] = assets/styles/print.css
+
+; JAVASCRIPTS
+scripts[] = assets/scripts/FlexSlider/jquery.flexslider-min.js
+scripts[] = assets/scripts/jquery.browser.min.js
+scripts[] = assets/scripts/script.js
+scripts[] = assets/scripts/totop.js

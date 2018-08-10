@@ -1,0 +1,24 @@
+
+//
+// @file
+// SASS - Element keyboard focus.
+//
+
+// Show focus styles on keyboard events only
+
+.js {
+
+    // Remove default focus styles for elements in body
+    body {
+        *:focus {
+            outline: 0;
+        }
+    }
+
+    // Apply custom focus styles when elements within .container have focus
+    .container--has-focus {
+        *:focus {
+            outline: solid CornflowerBlue 3px;
+        }
+    }
+}
